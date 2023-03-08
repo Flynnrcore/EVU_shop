@@ -1,0 +1,423 @@
+body {
+  margin: 0;
+}
+
+header {
+  display: flex;
+  box-sizing:border-box;
+  position: fixed;
+  z-index:100;
+
+  height: 80px;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  background: linear-gradient(90deg, #D4B2EF 0%, rgba(74, 132, 219, 0.58) 53.13%, rgba(217, 217, 217, 0.28) 100%);
+  color: white;
+}
+
+.logo {
+  display: flex;
+  order: 2;
+
+  width: 146px;
+  height: 80px;
+
+  margin: auto;
+  
+  font-family: 'Julius Sans One';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 33.18px;
+  line-height: 36px;
+  align-items: center;
+  text-align: center;
+  
+  color: #FFFFFF;
+}
+
+.left-menu {
+  display:flex;
+  position: relative;
+  display: inline-block;
+
+  width: 390px;
+
+  order: 1;
+  border: none;
+ /* background: #FFC700;*/
+}
+
+#menu-button {  
+  position: relative;
+  background: linear-gradient(180deg, rgba(140, 127, 222, 0.7) 0%, rgba(140, 127, 222, 0.294) 100%);
+
+  color: white;
+  
+  width: 127px;
+  height: 45px;
+
+  left: 29px;
+  top: 20px;
+
+  border:none;
+  border-radius: 10px;
+}
+
+.drop-button > p {
+  margin-left: 10px;
+}
+
+.menu-icon {
+  position: absolute;
+
+  width: 37px;
+  height: 27px;
+
+  top: 9px;
+  left: 9px;
+}
+
+.button-color:hover {
+  background: linear-gradient(93.62deg, rgba(85, 63, 220, 0.53) 60.04%, rgba(86, 62, 232, 0) 103.73%);
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+
+  width: 127px;
+  
+  top: 70px;
+  left: 29px;
+
+  text-align:center;
+
+  background-color: #D4B2EF;
+  min-width: 100px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 10px;
+}
+
+.dropdown-content a {
+  color: #fff;
+  padding: 6px 8px;
+  text-decoration: none;
+  display: block;
+}
+
+.left-menu a:hover {
+  background-color: #C080F3;
+  border-radius: 10px;
+}
+
+.show {
+  display: block;
+}
+
+.right-menu {
+  display: flex;
+  position: relative;
+  flex-wrap: nowrap;
+  flex-direction: row;
+
+  width: 390px;
+
+  order: 3;
+  /*background-color: #FFC700;*/
+}
+
+nav ul {
+  display: flex;
+
+  height: 40px;
+  width: 340px;
+/*border: 1px solid green;*/
+  padding-left: 0;
+}
+
+.right-menu button {
+  border: none;
+  background: none;
+}
+
+.right-menu img:hover {
+  opacity: 0.70;
+  cursor: pointer;
+}
+
+.header-search {
+  width: 240px;
+  height: 40px;
+  /*border: 1px solid black;*/
+}
+
+.header-search input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-start;
+
+  width: 206px;
+  height: 32px;
+
+  margin: 4px 2px;
+
+  background: rgba(243, 243, 243, 0.78);
+  border: 1px solid silver;
+  border-radius: 10px;
+}
+
+.header-search button {
+  position: absolute;
+  top: 18px;
+  padding: auto;
+  left: 202px;
+}
+
+.header-search input:hover, .header-search input:focus, .header-search input:active {
+  opacity: 0.8;
+  outline: 0;
+  border: 0.5px solid #D4B2EF;
+}
+
+.header-basket {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-start;
+
+  margin-top: 4px;
+  padding: 2px 8px;
+
+  height: 30px;
+  width: 30px;
+}
+
+.header-user-cabinet {
+  width: 30px;
+  height: 30px;
+
+  margin-top: 6px; 
+}
+
+li {
+  display: inline-block;
+  /*background-color: #ae63e4;*/
+  margin: 0;
+} 
+
+main {
+  display: flex;
+  
+  height: 100%;
+  width: 100%;
+
+  margin-top: 80px;
+}
+
+section {
+  box-sizing: border-box;
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  padding-top: 8px;
+  padding-left: 24px;
+
+  right: 0;
+}
+
+.section-padding {
+  padding-left: 192px;
+}
+
+.item-card {
+  transition: all 0.1s ease-out;
+
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+
+  margin: 8px;
+
+  width: 320px; 
+  height: 384px; 
+
+  border: 1px solid #C080F3;
+  border-radius: 8px;
+}
+
+.item-card:hover {
+  transform: scale(1.007);
+}
+
+.item-image {
+  width: 318px;
+  height: 242px;
+
+  object-fit: cover;
+
+  border-radius: 8px;
+}
+
+.item-name {
+  position: relative;
+
+  width: 238px;
+  height: 48px;
+
+  font-family: 'IBM Plex Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13.33px;
+  line-height: 17px;
+
+  margin: 8px auto 0px;
+
+  text-align: center;
+
+  color: #FFC700;
+}
+
+.item-price {
+  position: relative;
+
+  width: 86px;
+  height: 21px;
+
+  font-family: 'IBM Plex Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13.33px;
+  line-height: 17px;
+
+  margin: 0 auto 8px;
+
+  text-align: center;
+
+  color: #8C7FDE;
+}
+
+.item-button {
+  transition: all 0.5s ease-out;
+
+  position: relative;
+  width: 224px;
+  height: 32px;
+
+  margin: 0 auto 8px;
+
+  font-family: 'IBM Plex Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13.33px;
+  line-height: 17px;
+
+  color: #FFFFFF;
+  background: linear-gradient(93.62deg, rgba(140, 127, 222, 0.53) 60.04%, rgba(140, 127, 222, 0) 103.73%);
+  border: none;
+  border-radius: 10px;
+}
+
+a:link {
+  text-decoration: none;
+  color: white;
+}
+
+
+main button:hover {
+  background: linear-gradient(93.62deg, rgba(85, 63, 220, 0.53) 60.04%, rgba(86, 62, 232, 0) 103.73%);
+  cursor: pointer;
+}
+
+ aside {
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+
+  width: 192px;
+} 
+
+form > p {
+  text-align: center;
+}
+
+fieldset {
+  border: 1px solid #ae63e4;
+  border-radius: 8px;
+}
+
+.button-filter {
+  transition: all 0.5s ease-out;
+
+  background: linear-gradient(90deg, #D4B2EF 0%, rgba(74, 132, 219, 0.58) 53.13%, rgba(217, 217, 217, 0.28) 100%);
+  color: white;
+  padding: 8px;
+  margin: 8px;
+  border: none;
+  border-radius: 8px;
+}
+
+#form-button {
+  position: absolute;
+  transition: all 0.5s ease-out;
+
+  width: 20px;
+  height: 40px;
+  
+  background: plum;
+  color: white;
+  padding: 8px;
+  margin: 8px;
+  border: none;
+  border-radius: 8px;
+}
+
+form {
+  display: none;
+  box-sizing: border-box;
+  flex-direction: column;
+}
+
+footer {
+  display: flex;
+  position: relative;
+
+  height: 80px;
+
+  left: 0;
+  right: 0;
+
+  background: #3D3D3D;
+}
+
+footer .logo-footer {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 16px;
+}
+
+.instagram-icon {
+  width: 40px;
+  height: 40px;
+
+  margin-left: 32px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.instagram-icon:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}

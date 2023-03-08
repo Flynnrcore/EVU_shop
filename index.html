@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVU candles shop</title>
+    <link rel="icon" href="image/jar.png">
+    <link rel="Stylesheet" href="CSS/Style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif&family=Inter&family=Julius+Sans+One&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <span class="logo">EVU Candles</span>
+        <div class="left-menu">
+            <!-- onclick="openMenu()" --> 
+            <button id="menu-button" class="drop-button button-color">
+                <img class="menu-icon drop-button" src="image/Icons/menu-icon.svg" alt="menu icon">
+                <p class="drop-button">Меню</p>
+            </button>
+        <nav id="drop-list" class="dropdown-content">
+                <div><a href="#">Новинки</a></div>
+                <div><a href="#">Каталог</a></div>
+                <div><a href="#">Условия доставки</a></div>
+                <div><a href="#">О нас</a></div>
+            </ul>
+        </nav>
+    </div>
+        <nav class="right-menu">
+            <ul>
+                <li class="header-search">
+                    <form>
+                        <input type="search" placeholder=" Поиск...">
+                    <button><img class="search-button" src="image/Icons/header-search.svg"></button>
+                    </form>
+                </li>
+                <li class="header-basket">
+                    <button><img src="image/Icons/basket-icon.svg"></button>
+                </li>
+                <li class="header-user-cabinet">
+                    <button><img src="image/Icons/User-cabinet-icon.svg"></button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <aside>
+            <button id="form-button">></button>
+            <form id="form-filters">
+                <p>Фильтры</p>
+                <fieldset>
+                    <legend>Размер свечи</legend>
+                    <label>
+                        <input type="radio" name="candle-size" value="big">
+                        Большая
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="candle-size" value="small">
+                        Маленькая
+                    </label>
+                </fieldset>
+                <fieldset>
+                    <legend>Ароматы</legend>
+                    <label>
+                        <input type="checkbox" name="aroma-change" value="lavander">
+                        Лаванда & ваниль
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="aroma-change" value="Nuts">
+                        Nuts
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="aroma-change" value="exotic fireworks">
+                        Экзотический фейерверк
+                    </label>
+                    <label>
+                    <br>
+                        <input type="checkbox" name="aroma-change" value="aroma cappuccino">
+                        Ароматный капучино
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="aroma-change" value="blueberries with cream">
+                        Черника со сливками
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="aroma-change" value="mown grass">
+                        Скошенная трава
+                    </label>
+                </fieldset>
+                <button class="button-filter">Применить фильтры</button>
+            </form>
+        </aside>
+        <section>
+            <div class="item-card">
+                <img class="item-image" src="image/Big-grass.png" alt="mown grass pic">
+                <p class="item-name">Ароматическая свеча "Скошенная трава"</p>
+                <p class="item-price">1 800 руб.</p>
+                <button class="item-button"><a class="item-button-link">Добавить в корзину</a></button>
+            </div>
+
+            <div class="item-card">
+                <img class="item-image" src="image/Big-blueberry.png" alt="blueberries with cream pic">
+                <p class="item-name">Ароматическая свеча "Черника со сливками"</p>
+                <p class="item-price">1 800 руб.</p>
+                <button class="item-button"><a class="item-button-link">Добавить в корзину</a></button>
+            </div>
+
+            <div class="item-card">
+                <img class="item-image" src="image/Big-cappuccino.jpg" alt="aroma cappuccino pic">
+                <p class="item-name">Ароматическая свеча "Ароматный капучино"</p>
+                <p class="item-price">1 800 руб.</p>
+                <button class="item-button"><a class="item-button-link">Добавить в корзину</a></button>
+            </div>
+
+            <div class="item-card">
+                <img class="item-image" src="image/Big-lavender-vanila.png" alt="exotic fireworks pic">
+                <p class="item-name">Ароматическая свеча "Экзотический фейерверк"</p>
+                <p class="item-price">1 800 руб.</p>
+                <button class="item-button"><a class="item-button-link">Добавить в корзину</a></button>
+            </div>
+
+            <div class="item-card">
+                <img class="item-image" src="image/Big-nuts.png" alt="Nuts candle pic">
+                <p class="item-name">Ароматическая свеча "Nuts"</p>
+                <p class="item-price">1 800 руб.</p>
+                <button class="item-button"><a class="item-button-link">Добавить в корзину</a></button>
+            </div>
+
+            <div class="item-card">
+                <img class="item-image" src="image/Big-lavender-vanila.png" alt="Lavander & vanila pic">
+                <p class="item-name">Ароматическая свеча "Лаванда и ваниль"</p>
+                <p class="item-price">1 800 руб.</p>
+                <button class="item-button"><a class="item-button-link">Добавить в корзину</a></button>
+            </div>
+    
+            <div class="item-card">
+                <img class="item-image" src="image/Big-grass.png" alt="mown grass pic">
+                <p class="item-name">Ароматическая свеча "Скошенная трава"</p>
+                <p class="item-price">1 800 руб.</p>
+                <button class="item-button"><a class="item-button-link">Добавить в корзину</a></button>
+            </div>
+                
+            <div class="item-card">
+                <img class="item-image" src="image/Big-blueberry.png" alt="blueberries with cream pic">
+                <p class="item-name">Ароматическая свеча "Черника со сливками"</p>
+                <p class="item-price">1 800 руб.</p>
+                <button class="item-button"><a class="item-button-link">Добавить в корзину</a></button>
+            </div>
+                
+            <div class="item-card">
+                <img class="item-image" src="image/Big-cappuccino.jpg" alt="aroma cappuccino pic">
+                <p class="item-name">Ароматическая свеча "Ароматный капучино"</p>
+                <p class="item-price">1 800 руб.</p>
+                <button class="item-button"><a class="item-button-link">Добавить в корзину</a></button>
+            </div>
+
+            <div class="item-card">
+                <img class="item-image" src="image/Big-exotic-fireworks.png" alt="exotic fireworks pic">
+                <p class="item-name">Ароматическая свеча "Экзотический фейерверк"</p>
+                <p class="item-price">1 800 руб.</p>
+                <button class="item-button"><a class="item-button-link">Добавить в корзину</a></button>
+            </div>
+            <div class="item-card">
+                <img class="item-image" src="image/Big-lavender-vanila.png" alt="lavender pic">
+                <p class="item-name">Ароматическая свеча "Лаванда и ваниль"</p>
+                <p class="item-price">1 800 руб.</p>
+                <button class="item-button"><a class="item-button-link">Добавить в корзину</a></button>
+            </div>
+    
+            <div class="item-card">
+                <img class="item-image" src="image/Big-grass.png" alt="mown grass pic">
+                <p class="item-name">Ароматическая свеча "Скошенная трава"</p>
+                <p class="item-price">1 800 руб.</p>
+                <button class="item-button"><a class="item-button-link">Добавить в корзину</a></button>
+            </div>
+                
+            <div class="item-card">
+                <img class="item-image" src="image/Big-blueberry.png" alt="blueberries with cream pic">
+                <p class="item-name">Ароматическая свеча "Черника со сливками"</p>
+                <p class="item-price">1 800 руб.</p>
+                <button class="item-button"><a class="item-button-link">Добавить в корзину</a></button>
+            </div>
+                
+            <div class="item-card">
+                <img class="item-image" src="image/Big-cappuccino.jpg" alt="aroma cappuccino pic">
+                <p class="item-name">Ароматическая свеча "Ароматный капучино"</p>
+                <p class="item-price">1 800 руб.</p>
+                <button class="item-button"><a class="item-button-link">Добавить в корзину</a></button>
+            </div>
+
+            <div class="item-card">
+                <img class="item-image" src="image/Big-exotic-fireworks.png" alt="exotic fireworks pic">
+                <p class="item-name">Ароматическая свеча "Экзотический фейерверк"</p>
+                <p class="item-price">1 800 руб.</p>
+                <button class="item-button"><a class="item-button-link">Добавить в корзину</a></button>
+            </div>
+        </section>
+    </main>
+<footer>
+    <img class="instagram-icon" src="image/Icons/instagram-logo.svg" alt="instagram-logo">
+  <img class="logo-footer" src="image/Icons/evu-logo.svg" alt="logo">
+
+</footer>
+</body>
+<script src="./src/index.js"></script>
+</html>
