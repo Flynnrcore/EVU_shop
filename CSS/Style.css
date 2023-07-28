@@ -40,86 +40,41 @@ header {
 }
 
 .left-menu {
-  display:flex;
   position: relative;
   display: inline-block;
+  left: 15px;
+  padding: 0;
 
-  width: 390px;
+  width: 450px;
 
   order: 1;
   border: none;
 }
 
-#menu-button {  
-  position: relative;
-  background: linear-gradient(180deg, #BAA388 0%, rgba(186, 163, 136, 0.79) 100%);
-
-  color: white;
-  
-  width: 127px;
-  height: 45px;
-
-  left: 40px;
-  top: 20px;
-
-  border:none;
-  border-radius: 10px;
+.left-menu ul {
+  width: 440px;
 }
 
-.drop-button > p {
-  margin-left: 10px;
-}
-
-.menu-icon {
-  position: absolute;
-
-  width: 37px;
-  height: 27px;
-
-  top: 9px;
-  left: 9px;
-}
-
-.button-color:hover {
-  background: #B37840;
-  opacity: 0.8;
-  cursor: pointer;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-
-  width: 127px;
-  
-  top: 70px;
-  left: 40px;
-
-  text-align:center;
-
-  background-color: #BAA388;
-  min-width: 100px;
-  overflow: auto;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  border-radius: 10px;
-}
-
-.dropdown-content a {
-  color: #fff;
-  padding: 6px 8px;
+.left-menu-el {
+  color: #B37840;
+  font-size: 18px;
   text-decoration: none;
-  display: block;
+
+  margin: 15px 15px;
 }
 
-.left-menu a:hover {
-  background-color: #D1C8B8;
-  border-radius: 10px;
+.left-menu-el:hover {
+  text-decoration: underline;
 }
 
+.left-menu-el:active {
+  text-decoration: underline;
+}
+
+/*
 .show {
   display: block;
-}
+} */
 
 .right-menu {
   display: flex;
@@ -127,7 +82,7 @@ header {
   flex-wrap: nowrap;
   flex-direction: row;
 
-  width: 390px;
+  width: 450px;
 
   order: 3;
 }
@@ -136,9 +91,9 @@ nav ul {
   display: flex;
 
   height: 40px;
-  width: 360px;
+  width: 450px;
 
-  padding-left: 10px;
+  padding-left: 20px;
 }
 
 .right-menu button {
@@ -152,7 +107,7 @@ nav ul {
 }
 
 .header-search {
-  width: 255px;
+  width: 250px;
   height: 40px;
 }
 
@@ -176,7 +131,7 @@ nav ul {
   position: absolute;
   top: 14px;
   padding: auto;
-  left: 210px;
+  left: 220px;
 }
 
 .header-search input:hover, .header-search input:focus, .header-search input:active {
@@ -196,6 +151,12 @@ nav ul {
 
   height: 30px;
   width: 30px;
+}
+
+.basket-count {
+  color:#B37840;
+  margin-top: 12px;
+  margin-left: 10px;
 }
 
 .header-user-cabinet {
@@ -324,15 +285,10 @@ section {
 
   color: #FFFFFF;
   background: linear-gradient(180deg, #BAA388 0%, rgba(186, 163, 136, 0.46) 100%);
+  box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.1), 0px 3px 7px rgba(0, 0, 0, 0.2);
   border: none;
   border-radius: 10px;
 }
-
-a:link {
-  text-decoration: none;
-  color: white;
-}
-
 
 main button:hover {
   background: #D1C8B8;
@@ -372,6 +328,7 @@ fieldset {
   right: 0;
   left: 0;
   margin: auto;
+  box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.1), 0px 3px 7px rgba(0, 0, 0, 0.2);
 }
 
 #form-button {
