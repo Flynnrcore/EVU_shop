@@ -10,10 +10,10 @@ const candles = [
   { name: 'nuts', id: 5, size: 'big', price: '1800', newItem: false },
   { name: 'blueberry', id: 6, size: 'small', price: '1200', newItem: false },
   { name: 'cappuccino', id: 7, size: 'small', price: '1200', newItem: true },
-  { name: 'firework', id: 8, size: 'small', price: '1800', newItem: false },
-  { name: 'grass', id: 9, size: 'small', price: '1200', newItem: true },
-  { name: 'lavender', id: 10, size: 'small', price: '1200', newItem: false },
-  { name: 'nuts', id: 11, size: 'small', price: '1200', newItem: false },
+  { name: 'grass', id: 8, size: 'small', price: '1200', newItem: true },
+  { name: 'lavender', id: 9, size: 'small', price: '1200', newItem: false },
+  { name: 'nuts', id: 10, size: 'small', price: '1200', newItem: false },
+  { name: 'firework', id: 11, size: 'small', price: '1800', newItem: false },
 ];
 
 i18n.init({
@@ -53,7 +53,7 @@ const renderItemCards = (items) => {
 
     const pElName = document.createElement('p');
     pElName.classList.add('item-name');
-    pElName.textContent = 'Ароматическая свеча \n' + '"' + i18n.t(name) + '"';
+    pElName.textContent = `Ароматическая свеча\r\n "${i18n.t(name)}"`;
     item.append(pElName);
 
     const pElPrice = document.createElement('p');
@@ -104,14 +104,21 @@ const closeLeftMenuModalBtn = document.getElementById('close-left-menu');
 let isModalLeftMenuOpen = false;
 
 showAboutModalBtn.addEventListener('click', (e) => {
-  leftMenuContext.textContent = 'Мы знаем секретную формулу! Мы бренд свечей из кокосового воска “EVU candles” (читается как ЭВУ кэндлз). Мы сами вручную изготавливаем для вас невероятные ароматические свечи!  Много месяцев мы оттачивали своё мастерство в свечеварении. В поисках самых лучших материалов мы испробовали множество различных восков, ароматов, фитилей, подсвечников и др. И в результате выбрали самые качественные ингредиенты, самые вкусные и стойкие ароматы! Нам хочется, чтобы вы поскорее узнали обо всех ароматах наших свечей и о необычном деревянном фитиле, который приятно потрескивает при горении, как маленький костёр. Скорее выбирай свой любимый аромат и делай заказ пока все ароматы есть в наличии.';
+  leftMenuContext.textContent = `Мы знаем секретную формулу!\r\n
+  “EVU candles” - бренд свечей из кокосового воска (читается как ЭВУ кэндлз).\r\n
+  Мы сами вручную изготавливаем для вас невероятные ароматические свечи!
+  Много месяцев мы оттачивали своё мастерство в свечеварении.
+  В поисках самых лучших материалов мы испробовали множество различных восков, ароматов, фитилей, подсвечников и др. И в результате выбрали самые качественные ингредиенты, самые вкусные и стойкие ароматы! 
+  Нам хочется, чтобы вы поскорее узнали обо всех ароматах наших свечей и о необычном деревянном фитиле, который приятно потрескивает при горении, как маленький костёр.\r\n
+  Скорее выбирай свой любимый аромат и делай заказ пока все ароматы есть в наличии.`;
   leftMenuModal.showModal();
   isModalLeftMenuOpen = true;
   e.stopPropagation();
 });
 
 showDeliveryModalBtn.addEventListener('click', (e) => {
-  leftMenuContext.textContent = 'Доставка осуществляется с помощью курьерских служб СДЭК и BoxBerry в пункты выдачи по всей стране. Доставка от 1 дня от 390₽ в зависимости от местоположения. Стоимость доставки включена в цену свечи.';
+  leftMenuContext.textContent = `Доставка осуществляется с помощью курьерских служб СДЭК и BoxBerry в пункты выдачи по всей стране.\r\n
+  Доставка от 1 дня от 390₽ в зависимости от местоположения. Стоимость доставки включена в цену свечи.`;
   leftMenuModal.showModal();
   isModalLeftMenuOpen = true;
   e.stopPropagation();
