@@ -176,7 +176,7 @@ li {
 
 main {
   display: flex;
-  
+  min-height: 700px;
   height: 100%;
   width: 100%;
 
