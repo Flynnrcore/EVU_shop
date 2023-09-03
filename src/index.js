@@ -16,6 +16,50 @@ const candles = [
   { name: 'firework', id: 11, size: 'small', price: '1800', newItem: false },
 ];
 
+const candlesDescription = [
+  { candleName: 'blueberry', describe: 'Пахнет, как вкусный черничный йогурт.\r\n', notes: 'Верхние ноты: Черника, слива\r\n Средние ноты: Сахар, сливки\r\n Базовые ноты: Ваниль\r\n' },
+  { candleName: 'cappuccino', describe: 'Обожаю запах кофе, особенно капучино.\r\n Раньше нужно было покупать кофе только для того, чтобы почувствовать аромат, теперь у Вас будет свеча таким ароматом\r\n', notes: 'Верхние ноты: Миндаль, какао\r\n Средние ноты: Кофе, горячее молоко\r\n Базовые ноты: Ваниль, пралине\r\n' },
+  { candleName: 'firework', describe: 'Великолепный летний аромат.\r\n Пахнет экзотическими фруктами с преобладающим ароматом сочного ананаса.\r\n', notes: 'Верхние ноты: Лайм, апельсин, персик\r\n Средние ноты: Ананас, лицея\r\n Базовые ноты: Сахар, ириска' },
+  { candleName: 'grass', describe: 'Пахнет действительно как свежая сочная зелёная трава.\r\n', notes: 'Верхние ноты: Свежесрезанная трава\r\n Средние ноты: Прерия\r\n Базовые ноты: Трава\r\n' },
+  { candleName: 'lavender', describe: 'Не просто аромат лаванды, который можно услышать от любого мыла, геля для душа или пены для ванны с ароматом лаванды.\r\n Такой аромат вы ещё не пробовали!\r\n Он глубокий и сложный. Звучит «дорого» (по моему мнению). Я влюбилась в него с первого вдоха.\r\n', notes: 'Верхние ноты: Эвкалипт\r\n Средние ноты: Лаванда\r\n  Базовые ноты: Амбра, ваниль, мускус\r\n '},
+  { candleName: 'nuts', describe: 'Пахнет, как шоколадный батончик nuts, нугой\r\n', notes: 'Верхние ноты: Какао, бобы тонка, ваниль, карамель\r\n Средние ноты: Молоко\r\n Базовые ноты: Лесной орех\r\n' },
+];
+
+const itemCardModal = document.querySelector('.modal-item-card');
+const itemCardModalBox = document.querySelector('.modal-item-card-box');
+const closeItemCardModalBtn = document.getElementById('close-item-card');
+let isModalItemCardOpen = false;
+
+closeItemCardModalBtn.addEventListener('click', () => {
+  itemCardModal.close();
+  isModalItemCardOpen = false;
+});
+
+document.addEventListener('click', (e) => {
+  if (isModalItemCardOpen && !itemCardModalBox.contains(e.target)) {
+    itemCardModal.close();
+  }
+});
+
+const openItemCart = (target) => {
+  const showItemCardModalBtn = target;
+
+  showItemCardModalBtn.addEventListener('click', (e) => {
+    const [currentItem] = candles.filter(({id}) => id === Number(target.id));
+    const {name, size, price } = currentItem;
+    const cardItemPic = document.querySelector('#modal-item-card-pic');
+    cardItemPic.src = `./image/${size}-${name}.png`
+    document.querySelector('.modal-item-card-name').textContent = i18n.t(name);
+    document.querySelector('.modal-item-card-price').textContent = `${price} ${i18n.t('currency')}`;
+    const [{ describe, notes}] = candlesDescription.filter(({ candleName }) => candleName === name);
+    document.querySelector('.modal-item-card-describe').textContent = describe + notes;
+
+    itemCardModal.showModal();
+    isModalItemCardOpen = true;
+    e.stopPropagation();
+  });
+}
+
 i18n.init({
   lng: 'ru',
   resources: {
@@ -49,6 +93,7 @@ const renderItemCards = (items) => {
     img.classList.add('item-image');
     img.setAttribute('src', `./image/${size}-${name}.png`);
     img.setAttribute('alt', `candle ${name} pic`);
+    img.setAttribute('id', id);
     item.append(img);
 
     const pElName = document.createElement('p');
@@ -82,6 +127,9 @@ const renderItemCards = (items) => {
       basketCount.textContent = `${newPrice} ${i18n.t('currency')}`;
     });
   });
+
+  const images = document.querySelectorAll('.item-image');
+  images.forEach((img) => openItemCart(img));
 };
 renderItemCards(candles);
 
@@ -105,7 +153,7 @@ let isModalLeftMenuOpen = false;
 
 showAboutModalBtn.addEventListener('click', (e) => {
   leftMenuContext.textContent = `Мы знаем секретную формулу!\r\n
-  “EVU candles” - бренд свечей из кокосового воска (читается как ЭВУ кэндлз).\r\n
+  “EVU candles” - бренд свечей из кокосового воска.\r\n
   Мы сами вручную изготавливаем для вас невероятные ароматические свечи!
   Много месяцев мы оттачивали своё мастерство в свечеварении.
   В поисках самых лучших материалов мы испробовали множество различных восков, ароматов, фитилей, подсвечников и др. И в результате выбрали самые качественные ингредиенты, самые вкусные и стойкие ароматы! 

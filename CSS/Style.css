@@ -470,3 +470,120 @@ footer {
   text-align: center;
   white-space: pre-line;
 }
+
+.modal-item-card {
+  border: none;
+  border-radius: 10px;
+}
+
+.modal-item-card-content{
+  max-width: 720px;
+  margin: 2% auto;
+}
+
+.modal-item-card-div {
+  transition: 200ms;
+  background: #fff;
+}
+
+.item-card-body {
+  padding: 0 40px;
+  display: flex;
+  flex-flow: row no-wrap;
+  margin-bottom: 25px;
+}
+    
+.item-card-half {
+  box-sizing: border-box;
+  padding: 0 15px;
+  flex: 1 0 50%;
+}
+    
+.item-card-featured h1 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  padding: 0;
+  font-weight: 800;
+  font-family: sans-serif;
+  font-size: 50px;
+  line-height: 40px;
+  color: #B37840;
+}
+      
+.item-card-featured p {
+  margin: 0;
+  padding: 0;
+}
+        
+.item-card-featured .sub {
+  font-family: sans-serif;
+  font-size: 26px;
+  text-transform: uppercase;
+  color:#555;
+  font-weight: 300;
+  margin-bottom: 5px;
+}
+        
+modal-item-card-image {
+    padding-top: 15px;
+    width: 100%;
+}
+      
+.modal-item-card-image >  img {
+  display: block;
+
+}
+    
+.modal-item-card-description {
+  margin-bottom: 25px;
+}
+      
+.modal-item-card-describe {
+  margin: 0;
+  font-family: sans-serif;
+  font-weight: 300;
+  line-height: 27px;
+  font-size: 16px;
+  color: #555;
+  white-space: pre-line;
+}
+    
+.stock {
+  font-family: sans-serif;
+  font-weight: 600;
+  color: #FFC700;
+}
+
+.modal-item-card-price {
+  font-family: sans-serif;
+  color: #252525;
+  font-size: 26px;
+  margin: 5px;
+}
+ 
+span {
+  font-family: sans-serif;
+  font-size: 14px;
+  margin-left: 5px;
+  color: #555;
+}
+
+.modal-item-buy-button {
+  width: 100px;
+  height: 32px;
+
+  margin: 5px auto 8px;
+
+  font-family: 'IBM Plex Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13.33px;
+  line-height: 17px;
+
+  color: #FFFFFF;
+  background: linear-gradient(180deg, #BAA388 0%, rgba(186, 163, 136, 0.46) 100%);
+  box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.1), 0px 3px 7px rgba(0, 0, 0, 0.2);
+  border: none;
+  border-radius: 10px;
+  outline: none;
+}
