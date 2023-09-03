@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  overflow-x: hidden;
 }
 
 header {
@@ -57,7 +58,13 @@ header {
 
 .left-menu-el {
   color: #B37840;
-  font-size: 18px;
+  text-align: center;
+  font-family: Merriweather;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  height: 28px;
+  font-size: 16px;
   text-decoration: none;
 
   margin: 15px 15px;
@@ -70,11 +77,6 @@ header {
 .left-menu-el:active {
   text-decoration: underline;
 }
-
-/*
-.show {
-  display: block;
-} */
 
 .right-menu {
   display: flex;
@@ -140,7 +142,7 @@ nav ul {
   border: 0.5px solid #D1C8B8;
 }
 
-.header-basket {
+.basket-button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -207,6 +209,7 @@ section {
   transition: all 0.1s ease-out;
 
   display: flex;
+  position: relative;
   box-sizing: border-box;
   flex-direction: column;
 
@@ -219,17 +222,33 @@ section {
   border-radius: 8px;
 }
 
+.new-item {
+  position: absolute;
+  height: 20px;
+  width: 40px;
+  text-align: center;
+
+  right: 20px;
+  z-index: 1;
+
+  background: linear-gradient(180deg, #BAA388 0%, rgba(186, 163, 136, 0.46) 100%);
+  color: white;
+  border-radius: 10px;
+  
+}
+
 .item-card:hover {
   transform: scale(1.007);
 }
 
 .item-image {
-  width: 318px;
+  margin: 0;
+  width: 320px;
   height: 242px;
 
   object-fit: cover;
-
   border-radius: 8px;
+  cursor: pointer;
 }
 
 .item-name {
@@ -361,20 +380,17 @@ form {
 
 footer {
   display: flex;
-  position: relative;
+
+  justify-content: center;
+  align-items: center;
 
   height: 80px;
 
   left: 0;
   right: 0;
+  bottom: 0;
 
   background: #3D3D3D;
-}
-
-footer .logo-footer {
-  margin-top: auto;
-  margin-bottom: auto;
-  margin-left: 16px;
 }
 
 .instagram-icon {
@@ -389,4 +405,58 @@ footer .logo-footer {
 .instagram-icon:hover {
   opacity: 0.8;
   cursor: pointer;
+}
+
+.copyright {
+  margin: 10px;
+  color:#FFFFFF;
+}
+
+#modal-basket {
+  border: none;
+  width: 300px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.close-modal-btn {
+  position: absolute; 
+  top: 5px; 
+  right: 5px;
+
+  color: #FFFFFF;
+  background: linear-gradient(180deg, #BAA388 0%, rgba(186, 163, 136, 0.46) 100%);
+  box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.1), 0px 3px 7px rgba(0, 0, 0, 0.2);
+  border: none;
+  border-radius: 10px;
+  outline: none;
+}
+
+#close-modal-btn:hover {
+  background: #D1C8B8;
+  cursor: pointer;
+}
+
+.buy-button {
+  margin-top: 10px;
+
+  color: #FFFFFF;
+  background: linear-gradient(180deg, #BAA388 0%, rgba(186, 163, 136, 0.46) 100%);
+  box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.1), 0px 3px 7px rgba(0, 0, 0, 0.2);
+  border: none;
+  border-radius: 10px;
+  outline: none;
+}
+
+.modal-left-menu {
+  border: none;
+  
+  width: 500px;
+  height: 250px;
+  border-radius: 10px;
+}
+
+.modal-left-menu-content {
+  height: 100px;
+  text-align: center;
 }

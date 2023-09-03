@@ -7,6 +7,7 @@
     <title>EVU candles shop</title>
     <link rel="icon" href="image/jar.png">
     <link rel="Stylesheet" href="CSS/Style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif&family=Inter&family=Julius+Sans+One&display=swap" rel="stylesheet">
     <script defer type="module" src="./src/index.js"></script>
 </head>
@@ -17,10 +18,10 @@
         </span>
         <nav class="left-menu">
             <ul>
-                <a href="#" class="left-menu-el">Новинки</a>
-                <a href="#" class="left-menu-el">Каталог</a>
-                <a href="#" class="left-menu-el">Условия доставки</a>
-                <a href="#" class="left-menu-el">О нас</a>
+                <a href="#" class="left-menu-el new-button">Новинки</a>
+                <a href="#" class="left-menu-el katalog-button">Каталог</a>
+                <a href="#" class="left-menu-el delivery-button">Доставка</a>
+                <a href="#" class="left-menu-el about-button">О нас</a>
             </ul>
         </nav>
     </div>
@@ -28,23 +29,37 @@
             <ul>
                 <li class="header-search">
                     <form>
-                        <input type="search" placeholder=" Поиск...">
+                    <input type="search" placeholder=" Поиск...">
                     <button><img class="search-button" src="image/Icons/header-search.svg"></button>
                     </form>
                 </li>
-                <li class="header-basket">
+                <li class="basket-button">
                     <button><img src="image/Icons/basket-icon.svg"></button>
                 </li>
-                <li><p class="basket-count">0 рублей</p></li>
+                <li><p class="basket-count">0 руб.</p></li>
             </ul>
         </nav>
     </header>
     <main>
         <section class="items">
         </section>
+        <dialog class="modal-left-menu">
+            <div class="modal-left-menu-box" style="padding: 1rem">
+              <div class="modal-left-menu-content">Свечи ручной работы EVU candles</div>
+              <button class="close-modal-btn" id="close-left-menu">x</button>
+            </div>
+        </dialog>
+        <dialog style="padding: 0" id="modal-basket">
+            <div id="modal-basket-box" style="padding: 1rem">
+              <div class="modal-basket-content"></div>
+              <button class="close-modal-btn" id="close-basket">x</button>
+              <button class="buy-button"">Купить</button>
+            </div>
+        </dialog>
     </main>
 <footer>
     <img class="instagram-icon" src="image/Icons/instagram-logo.svg" alt="instagram-logo">
+    <p class="copyright">EVU candles 2023 &reg</p>
 </footer>
 </body>
 </html>
