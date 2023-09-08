@@ -123,6 +123,7 @@ nav ul {
   height: 32px;
 
   margin: 4px 2px;
+  padding: 5px;
 
   background: rgba(243, 243, 243, 0.78);
   border: 1px solid silver;
@@ -308,6 +309,7 @@ section {
   box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.1), 0px 3px 7px rgba(0, 0, 0, 0.2);
   border: none;
   border-radius: 10px;
+  outline: none;
 }
 
 main button:hover {
@@ -505,7 +507,7 @@ footer {
   padding: 0;
   font-weight: 800;
   font-family: sans-serif;
-  font-size: 50px;
+  font-size: 40px;
   line-height: 40px;
   color: #B37840;
 }
@@ -517,14 +519,14 @@ footer {
         
 .item-card-featured .sub {
   font-family: sans-serif;
-  font-size: 26px;
+  font-size: 22px;
   text-transform: uppercase;
   color:#555;
   font-weight: 300;
   margin-bottom: 5px;
 }
         
-modal-item-card-image {
+.modal-item-card-image {
     padding-top: 15px;
     width: 100%;
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,8 +28,8 @@
         <nav class="right-menu">
             <ul>
                 <li class="header-search">
-                    <form>
-                    <input type="search" placeholder=" Поиск...">
+                    <form id="search-form">
+                    <input type="search" name="search" placeholder=" Поиск по ароматам...">
                     <button><img class="search-button" src="image/Icons/header-search.svg"></button>
                     </form>
                 </li>
@@ -56,7 +56,7 @@
                       <div class="item-card-body">
                         <div class="item-card-half">
                           <div class="item-card-featured">
-                            <h1 class="modal-item-card-name">Nurton</h1>
+                            <h1 class="modal-item-card-name"></h1>
                             <p class="sub">Ароматическая свеча</p>
                           </div>
                           <div class="modal-item-card-image">
@@ -68,8 +68,8 @@
                             <p class="modal-item-card-describe"></p>
                           </div>
                           <span class="stock">В наличии</span>
-                          <p class="modal-item-card-price">1200 руб.</p>
-                          <button class="modal-item-buy-button">Купить</button>
+                          <p class="modal-item-card-price">0 руб.</p>
+                          <button class="item-button" id="add-cart-button">Добавить в корзину</button>
                         </div>
                       </div>
                     </div>
@@ -81,7 +81,7 @@
             <div id="modal-basket-box" style="padding: 1rem">
               <div class="modal-basket-content"></div>
               <button class="close-modal-btn" id="close-basket">x</button>
-              <button class="buy-button"">Купить</button>
+              <button class="buy-button">Купить</button>
             </div>
         </dialog>
     </main>

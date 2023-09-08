@@ -1,6 +1,13 @@
 import i18n from './i18next.js';
 import ru from './locales/ru.js';
 
+i18n.init({
+  lng: 'ru',
+  resources: {
+    ru,
+  },
+});
+
 const candles = [
   { name: 'blueberry', id: 0, size: 'big', price: '1800', newItem: true },
   { name: 'cappuccino', id: 1, size: 'big', price: '1800', newItem: false },
@@ -17,62 +24,119 @@ const candles = [
 ];
 
 const candlesDescription = [
-  { candleName: 'blueberry', describe: 'Пахнет, как вкусный черничный йогурт.\r\n', notes: 'Верхние ноты: Черника, слива\r\n Средние ноты: Сахар, сливки\r\n Базовые ноты: Ваниль\r\n' },
-  { candleName: 'cappuccino', describe: 'Обожаю запах кофе, особенно капучино.\r\n Раньше нужно было покупать кофе только для того, чтобы почувствовать аромат, теперь у Вас будет свеча таким ароматом\r\n', notes: 'Верхние ноты: Миндаль, какао\r\n Средние ноты: Кофе, горячее молоко\r\n Базовые ноты: Ваниль, пралине\r\n' },
-  { candleName: 'firework', describe: 'Великолепный летний аромат.\r\n Пахнет экзотическими фруктами с преобладающим ароматом сочного ананаса.\r\n', notes: 'Верхние ноты: Лайм, апельсин, персик\r\n Средние ноты: Ананас, лицея\r\n Базовые ноты: Сахар, ириска' },
-  { candleName: 'grass', describe: 'Пахнет действительно как свежая сочная зелёная трава.\r\n', notes: 'Верхние ноты: Свежесрезанная трава\r\n Средние ноты: Прерия\r\n Базовые ноты: Трава\r\n' },
-  { candleName: 'lavender', describe: 'Не просто аромат лаванды, который можно услышать от любого мыла, геля для душа или пены для ванны с ароматом лаванды.\r\n Такой аромат вы ещё не пробовали!\r\n Он глубокий и сложный. Звучит «дорого» (по моему мнению). Я влюбилась в него с первого вдоха.\r\n', notes: 'Верхние ноты: Эвкалипт\r\n Средние ноты: Лаванда\r\n  Базовые ноты: Амбра, ваниль, мускус\r\n '},
-  { candleName: 'nuts', describe: 'Пахнет, как шоколадный батончик nuts, нугой\r\n', notes: 'Верхние ноты: Какао, бобы тонка, ваниль, карамель\r\n Средние ноты: Молоко\r\n Базовые ноты: Лесной орех\r\n' },
+  {
+    candleName: 'blueberry',
+    describe: 'Пахнет, как вкусный черничный йогурт.\r\n',
+    notes: 'Верхние ноты: Черника, слива\r\n Средние ноты: Сахар, сливки\r\n Базовые ноты: Ваниль\r\n',
+    tags: 'Черника со сливками, Черника, слива, Сахар, сливки, Ваниль',
+  },
+  {
+    candleName: 'cappuccino',
+    describe: 'Обожаю запах кофе, особенно капучино.\r\n Раньше нужно было покупать кофе только для того, чтобы почувствовать аромат, теперь у Вас будет свеча таким ароматом\r\n',
+    notes: 'Верхние ноты: Миндаль, какао\r\n Средние ноты: Кофе, горячее молоко\r\n Базовые ноты: Ваниль, пралине\r\n',
+    tags: 'Ароматный капучино, Миндаль, какао, Кофе, горячее молоко, Ваниль, пралине',
+  },
+  {
+    candleName: 'firework',
+    describe: 'Великолепный летний аромат.\r\n Пахнет экзотическими фруктами с преобладающим ароматом сочного ананаса.\r\n',
+    notes: 'Верхние ноты: Лайм, апельсин, персик\r\n Средние ноты: Ананас, лицея\r\n Базовые ноты: Сахар, ириска',
+    tags: 'Экзотический фейерверк, Лайм, апельсин, персик, Ананас, лицея, Сахар, ириска',
+  },
+  {
+    candleName: 'grass',
+    describe: 'Пахнет действительно как свежая сочная зелёная трава.\r\n',
+    notes: 'Верхние ноты: Свежесрезанная трава\r\n Средние ноты: Прерия\r\n Базовые ноты: Трава\r\n',
+    tags: 'Скошенная трава, Свежесрезанная трава, Прерия, Трава',
+  },
+  {
+    candleName: 'lavender',
+    describe: 'Не просто аромат лаванды, который можно услышать от любого мыла, геля для душа или пены для ванны с ароматом лаванды.\r\n Такой аромат вы ещё не пробовали!\r\n Он глубокий и сложный. Звучит «дорого» (по моему мнению). Я влюбилась в него с первого вдоха.\r\n', 
+    notes: 'Верхние ноты: Эвкалипт\r\n Средние ноты: Лаванда\r\n  Базовые ноты: Амбра, ваниль, мускус\r\n ',
+    tags: 'Лаванда и ваниль, Эвкалипт, Амбра, ваниль, мускус',
+  },
+  {
+    candleName: 'nuts',
+    describe: 'Пахнет, как шоколадный батончик nuts, нугой\r\n',
+    notes: 'Верхние ноты: Какао, бобы тонка, ваниль, карамель\r\n Средние ноты: Молоко\r\n Базовые ноты: Лесной орех\r\n',
+    tags: 'nuts, какао, бобы тонка, ваниль, карамель, молоко, лесной орех',
+  },
 ];
 
-const itemCardModal = document.querySelector('.modal-item-card');
-const itemCardModalBox = document.querySelector('.modal-item-card-box');
-const closeItemCardModalBtn = document.getElementById('close-item-card');
-let isModalItemCardOpen = false;
+const elements = {
+  basketCount: document.querySelector('.basket-count'),
+  itemsList: document.querySelector('.items'),
+  searchForm: document.querySelector('#search-form'),
+  modal: {
+    itemCard: document.querySelector('.modal-item-card'),
+    itemCardBox: document.querySelector('.modal-item-card-box'),
+    closeItemCard: document.getElementById('close-item-card'),
+    addCartBtn: document.getElementById('add-cart-button'),
+    itemCardPic: document.querySelector('#modal-item-card-pic'),
+    itemCardName: document.querySelector('.modal-item-card-name'),
+    itemCardPrice: document.querySelector('.modal-item-card-price'),
+    itemCardDescribe: document.querySelector('.modal-item-card-describe'),
+    leftMenu: document.querySelector('.modal-left-menu'),
+    leftMenuBox: document.querySelector('.modal-left-menu-box'),
+    leftMenuContext: document.querySelector('.modal-left-menu-content'),
+    showAboutBtn: document.querySelector('.about-button'),
+    showDeliveryBtn: document.querySelector('.delivery-button'),
+    closeLeftMenuBtn: document.getElementById('close-left-menu'),
+    basket: document.getElementById('modal-basket'),
+    basketBox: document.getElementById('modal-basket-box'),
+    basketText: document.querySelector('.modal-basket-content'),
+    showBasketBtn: document.querySelector('.basket-button'),
+    closeBasketBtn: document.getElementById('close-basket'),
+  },
+};
 
-closeItemCardModalBtn.addEventListener('click', () => {
-  itemCardModal.close();
-  isModalItemCardOpen = false;
+let basketItemsCount = 0;
+let basketFullPrice = 0;
+
+const addBasketPrice = (id) => {
+  const priceEl = document.querySelector(`#price-${id}`);
+  const price = Number(priceEl.textContent.slice(0, -5));
+  const newPrice = Number(elements.basketCount.textContent.slice(0, -5)) + price;
+  basketItemsCount += 1;
+  basketFullPrice += price;
+  elements.basketCount.textContent = `${newPrice} ${i18n.t('currency')}`;
+};
+
+let isItemCardOpen = false;
+
+elements.modal.closeItemCard.addEventListener('click', () => {
+  elements.modal.itemCard.close();
+  isItemCardOpen = false;
 });
 
 document.addEventListener('click', (e) => {
-  if (isModalItemCardOpen && !itemCardModalBox.contains(e.target)) {
-    itemCardModal.close();
+  if (isItemCardOpen && !elements.modal.itemCardBox.contains(e.target)) {
+    elements.modal.itemCard.close();
   }
 });
 
 const openItemCart = (target) => {
-  const showItemCardModalBtn = target;
+  const showItemCardBtn = target;
 
-  showItemCardModalBtn.addEventListener('click', (e) => {
+  showItemCardBtn.addEventListener('click', (e) => {
     const [currentItem] = candles.filter(({id}) => id === Number(target.id));
-    const {name, size, price } = currentItem;
-    const cardItemPic = document.querySelector('#modal-item-card-pic');
-    cardItemPic.src = `./image/${size}-${name}.png`
-    document.querySelector('.modal-item-card-name').textContent = i18n.t(name);
-    document.querySelector('.modal-item-card-price').textContent = `${price} ${i18n.t('currency')}`;
+    const { name, size, price } = currentItem;
+    elements.modal.addCartBtn.addEventListener('click', () => {
+      addBasketPrice(target.id);
+    });
+    elements.modal.itemCardPic.src = `./image/${size}-${name}.png`
+    elements.modal.itemCardName.textContent = i18n.t(name);
+    elements.modal.itemCardPrice.textContent = `${price} ${i18n.t('currency')}`;
     const [{ describe, notes}] = candlesDescription.filter(({ candleName }) => candleName === name);
-    document.querySelector('.modal-item-card-describe').textContent = describe + notes;
+    elements.modal.itemCardDescribe.textContent = describe + notes;
 
-    itemCardModal.showModal();
-    isModalItemCardOpen = true;
+    elements.modal.itemCard.showModal();
+    isItemCardOpen = true;
     e.stopPropagation();
   });
 }
 
-i18n.init({
-  lng: 'ru',
-  resources: {
-    ru,
-  },
-});
-
-const basketCount = document.querySelector('.basket-count');
-let basketItemsCount = 0;
-let basketFullPrice = 0;
-
-const itemsList = document.querySelector('.items');
 const renderItemCards = (items) => {
+  const { itemsList } = elements;
   while (itemsList.firstChild) {
     itemsList.removeChild(itemsList.firstChild);
   }
@@ -82,7 +146,7 @@ const renderItemCards = (items) => {
     item.classList.add('item-card');
     const { name, id, size, price, newItem } = candle;
 
-    if(newItem) {
+    if (newItem) {
       const pElNew = document.createElement('p');
       pElNew.classList.add('new-item');
       pElNew.textContent = 'new';
@@ -109,22 +173,18 @@ const renderItemCards = (items) => {
 
     const itemBtn = document.createElement('button');
     itemBtn.classList.add('item-button');
+    itemBtn.classList.add('add-cart');
     itemBtn.setAttribute('id', id);
     itemBtn.textContent = i18n.t('addToCart');
     item.append(itemBtn);
     itemsList.append(item);
   });
 
-  const buttons = document.querySelectorAll('.item-button');
+  const buttons = document.querySelectorAll('.add-cart');
   buttons.forEach((button) => {
     button.addEventListener('click',({ target }) => {
       const { id } = target;
-      const priceEl = document.querySelector(`#price-${id}`);
-      const price = Number(priceEl.textContent.slice(0, -5));
-      const newPrice = Number(basketCount.textContent.slice(0, -5)) + price;
-      basketItemsCount += 1;
-      basketFullPrice += price;
-      basketCount.textContent = `${newPrice} ${i18n.t('currency')}`;
+      addBasketPrice(id);
     });
   });
 
@@ -136,22 +196,15 @@ renderItemCards(candles);
 document.querySelector('.new-button').addEventListener('click', (e) => {
   e.preventDefault();
   const newItems = candles.filter((candle) => candle.newItem === true);
-  console.log(newItems);
   renderItemCards(newItems);
 });
 
 document.querySelector('.katalog-button').addEventListener('click', () => renderItemCards(candles));
 
-const leftMenuModal = document.querySelector('.modal-left-menu');
-const leftMenuModalBox = document.querySelector('.modal-left-menu-box');
-const leftMenuContext = document.querySelector('.modal-left-menu-content');
-const showAboutModalBtn = document.querySelector('.about-button');
-const showDeliveryModalBtn = document.querySelector('.delivery-button');
-const closeLeftMenuModalBtn = document.getElementById('close-left-menu');
+const { leftMenu, leftMenuBox, leftMenuContext, showAboutBtn, showDeliveryBtn, closeLeftMenuBtn } = elements.modal;
+let isLeftMenuOpen = false;
 
-let isModalLeftMenuOpen = false;
-
-showAboutModalBtn.addEventListener('click', (e) => {
+showAboutBtn.addEventListener('click', (e) => {
   leftMenuContext.textContent = `Мы знаем секретную формулу!\r\n
   “EVU candles” - бренд свечей из кокосового воска.\r\n
   Мы сами вручную изготавливаем для вас невероятные ароматические свечи!
@@ -159,52 +212,59 @@ showAboutModalBtn.addEventListener('click', (e) => {
   В поисках самых лучших материалов мы испробовали множество различных восков, ароматов, фитилей, подсвечников и др. И в результате выбрали самые качественные ингредиенты, самые вкусные и стойкие ароматы! 
   Нам хочется, чтобы вы поскорее узнали обо всех ароматах наших свечей и о необычном деревянном фитиле, который приятно потрескивает при горении, как маленький костёр.\r\n
   Скорее выбирай свой любимый аромат и делай заказ пока все ароматы есть в наличии.`;
-  leftMenuModal.showModal();
-  isModalLeftMenuOpen = true;
+  leftMenu.showModal();
+  isLeftMenuOpen = true;
   e.stopPropagation();
 });
 
-showDeliveryModalBtn.addEventListener('click', (e) => {
+showDeliveryBtn.addEventListener('click', (e) => {
   leftMenuContext.textContent = `Доставка осуществляется с помощью курьерских служб СДЭК и BoxBerry в пункты выдачи по всей стране.\r\n
   Доставка от 1 дня от 390₽ в зависимости от местоположения. Стоимость доставки включена в цену свечи.`;
-  leftMenuModal.showModal();
-  isModalLeftMenuOpen = true;
+  leftMenu.showModal();
+  isLeftMenuOpen = true;
   e.stopPropagation();
 });
 
-closeLeftMenuModalBtn.addEventListener('click', () => {
-  leftMenuModal.close();
-  isModalLeftMenuOpen = false;
+closeLeftMenuBtn.addEventListener('click', () => {
+  leftMenu.close();
+  isLeftMenuOpen = false;
 });
 
 document.addEventListener('click', (e) => {
-  if (isModalLeftMenuOpen && !leftMenuModalBox.contains(e.target)) {
-    leftMenuModal.close();
+  if (isLeftMenuOpen && !leftMenuBox.contains(e.target)) {
+    leftMenu.close();
   }
 });
 
-const basketModal = document.getElementById('modal-basket');
-const basketModalBox = document.getElementById('modal-basket-box');
-const basketModalText = document.querySelector('.modal-basket-content');
-const showBasketModalBtn = document.querySelector('.basket-button');
-const closeBasketModalBtn = document.getElementById('close-basket');
+const { basket, basketBox, basketText, showBasketBtn, closeBasketBtn } = elements.modal;
+let isBasketOpen = false;
 
-let isModalBasketOpen = false;
-
-showBasketModalBtn.addEventListener('click', (e) => {
-  basketModalText.textContent = `В корзине ${basketItemsCount} ${i18n.t('key', { count: basketItemsCount})} на ${basketFullPrice} руб.`;
-  basketModal.showModal();
-  isModalBasketOpen = true;
+showBasketBtn.addEventListener('click', (e) => {
+  basketText.textContent = `В корзине ${basketItemsCount} ${i18n.t('key', { count: basketItemsCount})} на ${basketFullPrice} руб.`;
+  basket.showModal();
+  isBasketOpen = true;
   e.stopPropagation();
 });
 
-closeBasketModalBtn.addEventListener('click', () => {
-  basketModal.close();
-  isModalBasketOpen = false;
+closeBasketBtn.addEventListener('click', () => {
+  basket.close();
+  isBasketOpen = false;
 });
 
 document.addEventListener('click', (e) => {
-  if (isModalBasketOpen && !basketModalBox.contains(e.target)) {
-    basketModal.close();
+  if (isBasketOpen && !basketBox.contains(e.target)) {
+    basket.close();
   }
+});
+
+elements.searchForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  const searchValue = formData.get('search').toLowerCase();
+  const filterDescription = candlesDescription
+    .filter((candleDesc) => Object.values(candleDesc).some((value) => value.toLowerCase().includes(searchValue)))
+    .map((filterDesc) => filterDesc.candleName);
+  const filterCandles = candles.filter(({ name }) => filterDescription.some((candlesName) => candlesName === name));
+  renderItemCards(filterCandles);
+  console.log(filterCandles);
 });
