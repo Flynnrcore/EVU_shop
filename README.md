@@ -6,7 +6,7 @@
     handmade candles website
     <br/>
     <br/>
-    <a href='https://postimg.cc/t1m0XHqD' target='_blank'><img src='https://i.postimg.cc/9MccYWv3/EVU-shop-screenshot.png' border='0' alt='EVU-shop-screenshot'/></a>
+    <a href='https://flynnrcore.github.io/EVU_shop/#' target='_blank'><img src='https://i.postimg.cc/9MccYWv3/EVU-shop-screenshot.png' border='0' alt='EVU-shop-screenshot'/></a>
     <br/>
     <a href="https://flynnrcore.github.io/EVU_shop/">View Demo</a>
   </p>
