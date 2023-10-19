@@ -589,3 +589,31 @@ span {
   border-radius: 10px;
   outline: none;
 }
+
+@media (max-width: 550px) {
+  .header-search {
+    width: 200px;
+  }
+
+  .header-search input {
+    width: 80%;
+  }
+
+  .header-search button {
+    position: block;
+    left: 39%;
+    padding-top: 3px;
+  }
+
+
+}
+
+@media (max-width: 970px) {
+  .left-menu {
+    display: none;
+  }
+
+  .logo {
+    margin-left: 10px;
+  }
+}
