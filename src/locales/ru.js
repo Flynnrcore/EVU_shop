@@ -8,6 +8,8 @@ export default {
         nuts: 'Nuts',
         addToCart: 'добавить в корзину',
         currency: 'руб.',
+        small: 'мал.',
+        big: 'больш.',
         'key_zero': 'товаров',
         'key_one': 'товар',
         'key_two': 'товара',

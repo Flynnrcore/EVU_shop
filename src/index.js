@@ -84,6 +84,7 @@ const elements = {
     basket: document.getElementById('modal-basket'),
     basketBox: document.getElementById('modal-basket-box'),
     basketText: document.querySelector('.modal-basket-content'),
+    basketList: document.querySelector('.modal-basket-list'),
     showBasketBtn: document.querySelector('.basket-button'),
     closeBasketBtn: document.getElementById('close-basket'),
   },
@@ -91,13 +92,28 @@ const elements = {
 
 let basketItemsCount = 0;
 let basketFullPrice = 0;
+const basketCandles = {};
 
 const addBasketPrice = (id) => {
   const priceEl = document.querySelector(`#price-${id}`);
   const price = Number(priceEl.textContent.slice(0, -5));
   const newPrice = Number(elements.basketCount.textContent.slice(0, -5)) + price;
+
   basketItemsCount += 1;
   basketFullPrice += price;
+
+
+  if (!basketCandles.hasOwnProperty(id)) {
+    basketCandles[id] = {
+      id: Number(id),
+      count: 1,
+      price,
+    };
+  } else {
+    basketCandles[id].count += 1;
+    basketCandles[id].price += price;
+  }
+
   elements.basketCount.textContent = `${newPrice} ${i18n.t('currency')}`;
 };
 
@@ -236,11 +252,25 @@ document.addEventListener('click', (e) => {
   }
 });
 
-const { basket, basketBox, basketText, showBasketBtn, closeBasketBtn } = elements.modal;
+const { basket, basketBox, basketText, showBasketBtn, closeBasketBtn, basketList } = elements.modal;
 let isBasketOpen = false;
 
 showBasketBtn.addEventListener('click', (e) => {
   basketText.textContent = `В корзине ${basketItemsCount} ${i18n.t('key', { count: basketItemsCount})} на ${basketFullPrice} руб.`;
+
+  if (Object.keys(basketCandles).length !== 0) {
+    while (basketList.firstChild) {
+      basketList.removeChild(basketList.firstChild);
+    }
+
+    const candlesList = Object.values(basketCandles);
+    candlesList.forEach(({id, count, price}) => {
+      const [candle] = candles.filter((item) => item.id === id);
+      const basketLiEl = document.createElement('li');
+      basketLiEl.textContent = `${i18n.t(candle.name)} (${i18n.t(candle.size)}) ${count}шт. - ${price} руб.`;
+      basketList.append(basketLiEl);
+    })
+  }
   basket.showModal();
   isBasketOpen = true;
   e.stopPropagation();
