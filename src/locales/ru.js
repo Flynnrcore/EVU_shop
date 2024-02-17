@@ -16,5 +16,10 @@ export default {
         'key_few': 'товара',
         'key_many': 'товаров',
         'key_other': 'товары',
+        buy: 'Купить',
+        nameInput: 'введите ФИО',
+        emailInput: 'введите email',
+        numberInput: 'введите номер телефона',
+        addressInput: 'введите адресс',
     },
   };

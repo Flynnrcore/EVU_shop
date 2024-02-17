@@ -92,7 +92,9 @@ const elements = {
 
 let basketItemsCount = 0;
 let basketFullPrice = 0;
-const basketCandles = {};
+const basketCandles = {
+  total: {},
+};
 
 const addBasketPrice = (id) => {
   const priceEl = document.querySelector(`#price-${id}`);
@@ -103,15 +105,15 @@ const addBasketPrice = (id) => {
   basketFullPrice += price;
 
 
-  if (!basketCandles.hasOwnProperty(id)) {
-    basketCandles[id] = {
+  if (!basketCandles.total.hasOwnProperty(id)) {
+    basketCandles.total[id] = {
       id: Number(id),
       count: 1,
       price,
     };
   } else {
-    basketCandles[id].count += 1;
-    basketCandles[id].price += price;
+    basketCandles.total[id].count += 1;
+    basketCandles.total[id].price += price;
   }
 
   elements.basketCount.textContent = `${newPrice} ${i18n.t('currency')}`;
@@ -258,19 +260,70 @@ let isBasketOpen = false;
 showBasketBtn.addEventListener('click', (e) => {
   basketText.textContent = `В корзине ${basketItemsCount} ${i18n.t('key', { count: basketItemsCount})} на ${basketFullPrice} руб.`;
 
-  if (Object.keys(basketCandles).length !== 0) {
+
+  if (Object.keys(basketCandles.total).length !== 0) {
     while (basketList.firstChild) {
       basketList.removeChild(basketList.firstChild);
     }
 
-    const candlesList = Object.values(basketCandles);
+    const candlesList = Object.values(basketCandles.total);
     candlesList.forEach(({id, count, price}) => {
       const [candle] = candles.filter((item) => item.id === id);
       const basketLiEl = document.createElement('li');
       basketLiEl.textContent = `${i18n.t(candle.name)} (${i18n.t(candle.size)}) ${count}шт. - ${price} руб.`;
       basketList.append(basketLiEl);
     })
+
+    if (!(document.querySelector('.buy-button'))) {   
+      const buyForm = document.createElement('form');
+      buyForm.classList.add('buy-form');
+      const nameInput = document.createElement('input');
+      nameInput.setAttribute('type', 'text');
+      nameInput.setAttribute('name', 'userName');
+      nameInput.setAttribute('placeholder', i18n.t('nameInput'));
+      const emailInput = document.createElement('input');
+      emailInput.setAttribute('type', 'email');
+      emailInput.setAttribute('name', 'email');
+      emailInput.setAttribute('placeholder', i18n.t('emailInput'));
+      const numberInput = document.createElement('input');
+      numberInput.setAttribute('type', 'text');
+      numberInput.setAttribute('name', 'number');
+      numberInput.setAttribute('placeholder', i18n.t('numberInput'));
+      const addressInput = document.createElement('input');
+      addressInput.setAttribute('type', 'text');
+      addressInput.setAttribute('name', 'address');
+      addressInput.setAttribute('placeholder', i18n.t('addressInput'));
+      const buyBtn = document.createElement('button');
+      buyBtn.textContent = i18n.t('buy');
+      buyBtn.classList.add('buy-button');
+      buyForm.append(nameInput);
+      buyForm.append(emailInput);
+      buyForm.append(numberInput);
+      buyForm.append(addressInput);
+      buyForm.append(buyBtn); 
+      basketBox.append(buyForm);
+
+      buyForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const buyFormData = new FormData(e.target);
+        const order = `Пользователь ${buyFormData.get('userName')} сделал заказ на сумму ${basketFullPrice}.
+        Состав заказа: ${basketCandles.total}
+        Данные для доставки -
+        адресс: ${buyFormData.get('address')}, 
+        эл.почта: ${buyFormData.get('email')},
+        телефон: ${buyFormData.get('number')}`;
+        console.log(order);
+
+        basketCandles.total = {};
+        basketItemsCount = 0;
+        basketFullPrice = 0;
+        elements.basketCount.textContent = `0 ${i18n.t('currency')}`;
+        basket.close();
+        isBasketOpen = false;
+      });
+    }
   }
+
   basket.showModal();
   isBasketOpen = true;
   e.stopPropagation();
@@ -296,5 +349,4 @@ elements.searchForm.addEventListener('submit', (e) => {
     .map((filterDesc) => filterDesc.candleName);
   const filterCandles = candles.filter(({ name }) => filterDescription.some((candlesName) => candlesName === name));
   renderItemCards(filterCandles);
-  console.log(filterCandles);
 });
