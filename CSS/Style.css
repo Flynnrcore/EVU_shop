@@ -31,6 +31,7 @@ header {
 }
 
 .left-menu-el {
+  margin-right: 0.5em;
   color: #B37840;
   text-align: center;
   font-family: Merriweather;
@@ -395,10 +396,16 @@ fieldset {
 }
 
 #modal-basket {
-  border: none;
   width: 400px;
   text-align: center;
+  border: none;
   border-radius: 10px;
+  color:#B37840;
+}
+
+.modal-basket-list {
+  list-style: none;
+  margin: 0.5em 0;
 }
 
 .close-modal-btn {
@@ -419,8 +426,24 @@ fieldset {
   cursor: pointer;
 }
 
+.buy-form {
+  margin-left: 10%;
+  width: 80%;
+  padding: 10px;
+}
+
+.buy-form input {
+  width: 95%;
+  height: 25px;
+  top: auto;
+  left: auto;
+  margin: 10px 10% 0 0;
+}
+
 .buy-button {
   margin-top: 10px;
+  width: 80px;
+  height: 32px;
 
   color: #FFFFFF;
   background: linear-gradient(180deg, #BAA388 0%, rgba(186, 163, 136, 0.46) 100%);
@@ -430,10 +453,14 @@ fieldset {
   outline: none;
 }
 
+button:active {
+  transform: scale(0.9);
+}
+
 .modal-left-menu {
-  border: none;
   width: 80%;
   max-width: 700px;
+  border: none;
   border-radius: 10px;
 }
 
