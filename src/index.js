@@ -1,5 +1,8 @@
 import i18n from './i18next.js';
 import ru from './locales/ru.js';
+import data from './dist/data.js';
+import getItemCard from './dist/item.js';
+import getBasketForm from './dist/basketForm.js';
 
 i18n.init({
   lng: 'ru',
@@ -7,60 +10,6 @@ i18n.init({
     ru,
   },
 });
-
-const candles = [
-  { name: 'blueberry', id: 0, size: 'big', price: '1800', newItem: true },
-  { name: 'cappuccino', id: 1, size: 'big', price: '1800', newItem: false },
-  { name: 'firework', id: 2, size: 'big', price: '1800', newItem: false },
-  { name: 'grass', id: 3, size: 'big', price: '1800', newItem: true },
-  { name: 'lavender', id: 4, size: 'big', price: '1800', newItem: false },
-  { name: 'nuts', id: 5, size: 'big', price: '1800', newItem: false },
-  { name: 'blueberry', id: 6, size: 'small', price: '1200', newItem: false },
-  { name: 'cappuccino', id: 7, size: 'small', price: '1200', newItem: true },
-  { name: 'grass', id: 8, size: 'small', price: '1200', newItem: true },
-  { name: 'lavender', id: 9, size: 'small', price: '1200', newItem: false },
-  { name: 'nuts', id: 10, size: 'small', price: '1200', newItem: false },
-  { name: 'firework', id: 11, size: 'small', price: '1800', newItem: false },
-];
-
-const candlesDescription = [
-  {
-    candleName: 'blueberry',
-    describe: 'Пахнет, как вкусный черничный йогурт.\r\n',
-    notes: 'Верхние ноты: Черника, слива\r\n Средние ноты: Сахар, сливки\r\n Базовые ноты: Ваниль\r\n',
-    tags: 'Черника со сливками, Черника, слива, Сахар, сливки, Ваниль',
-  },
-  {
-    candleName: 'cappuccino',
-    describe: 'Обожаю запах кофе, особенно капучино.\r\n Раньше нужно было покупать кофе только для того, чтобы почувствовать аромат, теперь у Вас будет свеча таким ароматом\r\n',
-    notes: 'Верхние ноты: Миндаль, какао\r\n Средние ноты: Кофе, горячее молоко\r\n Базовые ноты: Ваниль, пралине\r\n',
-    tags: 'Ароматный капучино, Миндаль, какао, Кофе, горячее молоко, Ваниль, пралине',
-  },
-  {
-    candleName: 'firework',
-    describe: 'Великолепный летний аромат.\r\n Пахнет экзотическими фруктами с преобладающим ароматом сочного ананаса.\r\n',
-    notes: 'Верхние ноты: Лайм, апельсин, персик\r\n Средние ноты: Ананас, лицея\r\n Базовые ноты: Сахар, ириска',
-    tags: 'Экзотический фейерверк, Лайм, апельсин, персик, Ананас, лицея, Сахар, ириска',
-  },
-  {
-    candleName: 'grass',
-    describe: 'Пахнет действительно как свежая сочная зелёная трава.\r\n',
-    notes: 'Верхние ноты: Свежесрезанная трава\r\n Средние ноты: Прерия\r\n Базовые ноты: Трава\r\n',
-    tags: 'Скошенная трава, Свежесрезанная трава, Прерия, Трава',
-  },
-  {
-    candleName: 'lavender',
-    describe: 'Не просто аромат лаванды, который можно услышать от любого мыла, геля для душа или пены для ванны с ароматом лаванды.\r\n Такой аромат вы ещё не пробовали!\r\n Он глубокий и сложный. Звучит «дорого» (по моему мнению). Я влюбилась в него с первого вдоха.\r\n', 
-    notes: 'Верхние ноты: Эвкалипт\r\n Средние ноты: Лаванда\r\n  Базовые ноты: Амбра, ваниль, мускус\r\n ',
-    tags: 'Лаванда и ваниль, Эвкалипт, Амбра, ваниль, мускус',
-  },
-  {
-    candleName: 'nuts',
-    describe: 'Пахнет, как шоколадный батончик nuts, нугой\r\n',
-    notes: 'Верхние ноты: Какао, бобы тонка, ваниль, карамель\r\n Средние ноты: Молоко\r\n Базовые ноты: Лесной орех\r\n',
-    tags: 'nuts, какао, бобы тонка, ваниль, карамель, молоко, лесной орех',
-  },
-];
 
 const elements = {
   basketCount: document.querySelector('.basket-count'),
@@ -136,7 +85,7 @@ const openItemCart = (target) => {
   const showItemCardBtn = target;
 
   showItemCardBtn.addEventListener('click', (e) => {
-    const [currentItem] = candles.filter(({id}) => id === Number(target.id));
+    const [currentItem] = data.candles.filter(({id}) => id === Number(target.id));
     const { name, size, price } = currentItem;
     elements.modal.addCartBtn.addEventListener('click', () => {
       addBasketPrice(target.id);
@@ -144,7 +93,7 @@ const openItemCart = (target) => {
     elements.modal.itemCardPic.src = `./image/${size}-${name}.png`
     elements.modal.itemCardName.textContent = i18n.t(name);
     elements.modal.itemCardPrice.textContent = `${price} ${i18n.t('currency')}`;
-    const [{ describe, notes}] = candlesDescription.filter(({ candleName }) => candleName === name);
+    const [{ describe, notes}] = data.candlesDescription.filter(({ candleName }) => candleName === name);
     elements.modal.itemCardDescribe.textContent = describe + notes;
 
     elements.modal.itemCard.showModal();
@@ -160,41 +109,7 @@ const renderItemCards = (items) => {
   }
 
   items.map((candle) => {
-    const item = document.createElement('div');
-    item.classList.add('item-card');
-    const { name, id, size, price, newItem } = candle;
-
-    if (newItem) {
-      const pElNew = document.createElement('p');
-      pElNew.classList.add('new-item');
-      pElNew.textContent = 'new';
-      item.append(pElNew);
-    }
-
-    const img = document.createElement('img');
-    img.classList.add('item-image');
-    img.setAttribute('src', `./image/${size}-${name}.png`);
-    img.setAttribute('alt', `candle ${name} pic`);
-    img.setAttribute('id', id);
-    item.append(img);
-
-    const pElName = document.createElement('p');
-    pElName.classList.add('item-name');
-    pElName.textContent = `Ароматическая свеча\r\n "${i18n.t(name)}"`;
-    item.append(pElName);
-
-    const pElPrice = document.createElement('p');
-    pElPrice.classList.add('item-price');
-    pElPrice.setAttribute('id', `price-${id}`);
-    pElPrice.textContent = `${price} ${i18n.t('currency')}`;
-    item.append(pElPrice);
-
-    const itemBtn = document.createElement('button');
-    itemBtn.classList.add('item-button');
-    itemBtn.classList.add('add-cart');
-    itemBtn.setAttribute('id', id);
-    itemBtn.textContent = i18n.t('addToCart');
-    item.append(itemBtn);
+    const item = getItemCard(candle);
     itemsList.append(item);
   });
 
@@ -209,35 +124,28 @@ const renderItemCards = (items) => {
   const images = document.querySelectorAll('.item-image');
   images.forEach((img) => openItemCart(img));
 };
-renderItemCards(candles);
+renderItemCards(data.candles);
 
 document.querySelector('.new-button').addEventListener('click', (e) => {
   e.preventDefault();
-  const newItems = candles.filter((candle) => candle.newItem === true);
+  const newItems = data.candles.filter((candle) => candle.newItem === true);
   renderItemCards(newItems);
 });
 
-document.querySelector('.katalog-button').addEventListener('click', () => renderItemCards(candles));
+document.querySelector('.katalog-button').addEventListener('click', () => renderItemCards(data.candles));
 
 const { leftMenu, leftMenuBox, leftMenuContext, showAboutBtn, showDeliveryBtn, closeLeftMenuBtn } = elements.modal;
 let isLeftMenuOpen = false;
 
 showAboutBtn.addEventListener('click', (e) => {
-  leftMenuContext.textContent = `Мы знаем секретную формулу!\r\n
-  “EVU candles” - бренд свечей из кокосового воска.\r\n
-  Мы сами вручную изготавливаем для вас невероятные ароматические свечи!
-  Много месяцев мы оттачивали своё мастерство в свечеварении.
-  В поисках самых лучших материалов мы испробовали множество различных восков, ароматов, фитилей, подсвечников и др. И в результате выбрали самые качественные ингредиенты, самые вкусные и стойкие ароматы! 
-  Нам хочется, чтобы вы поскорее узнали обо всех ароматах наших свечей и о необычном деревянном фитиле, который приятно потрескивает при горении, как маленький костёр.\r\n
-  Скорее выбирай свой любимый аромат и делай заказ пока все ароматы есть в наличии.`;
+  leftMenuContext.textContent = data.aboutText;
   leftMenu.showModal();
   isLeftMenuOpen = true;
   e.stopPropagation();
 });
 
 showDeliveryBtn.addEventListener('click', (e) => {
-  leftMenuContext.textContent = `Доставка осуществляется с помощью курьерских служб СДЭК и BoxBerry в пункты выдачи по всей стране.\r\n
-  Доставка от 1 дня от 390₽ в зависимости от местоположения. Стоимость доставки включена в цену свечи.`;
+  leftMenuContext.textContent = data.deliveryText;
   leftMenu.showModal();
   isLeftMenuOpen = true;
   e.stopPropagation();
@@ -268,39 +176,14 @@ showBasketBtn.addEventListener('click', (e) => {
 
     const candlesList = Object.values(basketCandles.total);
     candlesList.forEach(({id, count, price}) => {
-      const [candle] = candles.filter((item) => item.id === id);
+      const [candle] = data.candles.filter((item) => item.id === id);
       const basketLiEl = document.createElement('li');
       basketLiEl.textContent = `${i18n.t(candle.name)} (${i18n.t(candle.size)}) ${count}шт. - ${price} руб.`;
       basketList.append(basketLiEl);
     })
 
     if (!(document.querySelector('.buy-button'))) {   
-      const buyForm = document.createElement('form');
-      buyForm.classList.add('buy-form');
-      const nameInput = document.createElement('input');
-      nameInput.setAttribute('type', 'text');
-      nameInput.setAttribute('name', 'userName');
-      nameInput.setAttribute('placeholder', i18n.t('nameInput'));
-      const emailInput = document.createElement('input');
-      emailInput.setAttribute('type', 'email');
-      emailInput.setAttribute('name', 'email');
-      emailInput.setAttribute('placeholder', i18n.t('emailInput'));
-      const numberInput = document.createElement('input');
-      numberInput.setAttribute('type', 'text');
-      numberInput.setAttribute('name', 'number');
-      numberInput.setAttribute('placeholder', i18n.t('numberInput'));
-      const addressInput = document.createElement('input');
-      addressInput.setAttribute('type', 'text');
-      addressInput.setAttribute('name', 'address');
-      addressInput.setAttribute('placeholder', i18n.t('addressInput'));
-      const buyBtn = document.createElement('button');
-      buyBtn.textContent = i18n.t('buy');
-      buyBtn.classList.add('buy-button');
-      buyForm.append(nameInput);
-      buyForm.append(emailInput);
-      buyForm.append(numberInput);
-      buyForm.append(addressInput);
-      buyForm.append(buyBtn); 
+      const buyForm = getBasketForm();
       basketBox.append(buyForm);
 
       buyForm.addEventListener('submit', (e) => {
@@ -344,9 +227,9 @@ elements.searchForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const formData = new FormData(e.target);
   const searchValue = formData.get('search').toLowerCase();
-  const filterDescription = candlesDescription
+  const filterDescription = data.candlesDescription
     .filter((candleDesc) => Object.values(candleDesc).some((value) => value.toLowerCase().includes(searchValue)))
     .map((filterDesc) => filterDesc.candleName);
-  const filterCandles = candles.filter(({ name }) => filterDescription.some((candlesName) => candlesName === name));
+  const filterCandles = data.candles.filter(({ name }) => filterDescription.some((candlesName) => candlesName === name));
   renderItemCards(filterCandles);
 });
